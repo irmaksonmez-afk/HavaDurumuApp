@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hava Durumu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="app">
+      <header class="topbar">
+        <div class="titles">
+          <h1>Hava Durumu</h1>
+          <p>Şehrini yaz, anlık durumu gör.</p>
+        </div>
+
+        <button id="unitToggle" class="unit-toggle is-c" aria-label="Birim değiştir">
+          <span class="pill c">°C</span>
+          <span class="pill f">°F</span>
+        </button>
+      </header>
+
+      <div class="search-row">
+        <div class="search">
+          <span class="search-emoji" aria-hidden="true">🔎</span>
+          <input id="cityInput" type="text" placeholder="Şehir gir (örn: Edirne)" autocomplete="off" />
+          <button id="clearBtn" class="clear" title="Temizle" aria-label="Temizle">✕</button>
+        </div>
+        <button id="searchBtn" class="btn-search">
+          <span class="sparkle" aria-hidden="true">✨</span>
+          Ara
+        </button>
+      </div>
+
+      <section class="result">
+        <div class="result-head">
+          <div class="place">
+            <h2 id="placeTitle">—</h2>
+            <div class="meta" id="placeMeta">Şehir seçiniz</div>
+          </div>
+
+          <div class="wx-icon" id="wxIcon" title="Hava durumu">
+            <span class="emoji">⛅</span>
+          </div>
+        </div>
+
+        <div class="temp-row">
+          <div class="temp">
+            <span id="tempValue">--</span><span class="unit" id="tempUnit">°C</span>
+          </div>
+          <div class="desc" id="descText">—</div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="label">Hissedilen</div>
+            <div class="value"><span id="feelsValue">--</span><span class="unit mini" id="feelsUnit">°C</span></div>
+          </div>
+
+          <div class="card">
+            <div class="label">Min / Max</div>
+            <div class="value">
+              <span id="minValue">--</span><span class="unit mini" id="minUnit">°C</span>
+              <span class="sep">/</span>
+              <span id="maxValue">--</span><span class="unit mini" id="maxUnit">°C</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="label">Nem</div>
+            <div class="value"><span id="humValue">--</span>%</div>
+          </div>
+
+          <div class="card">
+            <div class="label">Rüzgar</div>
+            <div class="value"><span id="windValue">--</span> km/sa</div>
+          </div>
+
+          <div class="card">
+            <div class="label">Yağış</div>
+            <div class="value"><span id="rainValue">0</span> mm</div>
+          </div>
+
+          <div class="card">
+            <div class="label">Basınç</div>
+            <div class="value"><span id="pressValue">--</span> hPa</div>
+          </div>
+        </div>
+
+        <div class="badges">
+          <div class="badge b1">
+            <div class="b-ico">💧</div>
+            <div class="b-text">
+              <div class="b-title">Nem</div>
+              <div class="b-val" id="humBadge">--%</div>
+            </div>
+          </div>
+
+          <div class="badge b2">
+            <div class="b-ico">🌬️</div>
+            <div class="b-text">
+              <div class="b-title">Rüzgar</div>
+              <div class="b-val" id="windBadge">-- km/sa</div>
+            </div>
+          </div>
+
+          <div class="badge b3">
+            <div class="b-ico">🌧️</div>
+            <div class="b-text">
+              <div class="b-title">Yağış</div>
+              <div class="b-val" id="rainBadge">0 mm</div>
+            </div>
+          </div>
+
+          <div class="badge b4">
+            <div class="b-ico">🌡️</div>
+            <div class="b-text">
+              <div class="b-title">Min/Max</div>
+              <div class="b-val" id="minMaxBadge">-- / --</div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footnote">
+          Veri kaynağı: OpenWeatherMap • Demo: API key istemci tarafında (prod için .env + backend önerilir)
+        </footer>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
